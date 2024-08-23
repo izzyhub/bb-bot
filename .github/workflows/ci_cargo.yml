@@ -3,7 +3,7 @@ name: Cargo CI
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - "cargo/**"
       - ".github/workflows/ci_cargo.yml"
@@ -26,7 +26,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: ["esp32", "esp32c3", "esp32c2", "esp32c6", "esp32h2", "esp32s2", "esp32s3"]
+        target:
+          [
+            "esp32",
+            "esp32c3",
+            "esp32c2",
+            "esp32c6",
+            "esp32h2",
+            "esp32s2",
+            "esp32s3",
+          ]
         std-config:
           - std: true
           - std: false
