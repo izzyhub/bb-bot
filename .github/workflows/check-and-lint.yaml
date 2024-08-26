@@ -15,7 +15,7 @@ jobs:
       - uses: izzyhub/xtensa-toolchain@v1.5.10
         with:
           default: true
-          version: "1.74.0.1"
+          version: "latest"
           ldproxy: true
           #override: true
       - run: cargo check
@@ -28,7 +28,7 @@ jobs:
       - uses: izzyhub/xtensa-toolchain@v1.5.10
         with:
           default: true
-          version: "1.74.0.1"
+          version: "latest"
           ldproxy: true
           override: true
       - run: rustup component add rustfmt
@@ -42,6 +42,6 @@ jobs:
       - uses: izzyhub/xtensa-toolchain@v1.5.10
         with:
           default: true
-          version: "1.74.0.1"
+          version: "latest"
           ldproxy: true
       - run: cargo clippy
