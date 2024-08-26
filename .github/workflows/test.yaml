@@ -20,7 +20,7 @@ jobs:
       - uses: izzyhub/xtensa-toolchain@v1.5.10
         with:
           default: true
-          version: "1.7.4"
+          version: "1.74.0.1"
           ldproxy: true
       - name: Cache dependencies
         uses: actions/cache@v2
