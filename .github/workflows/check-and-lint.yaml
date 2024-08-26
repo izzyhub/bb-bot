@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - uses: esp-rs/xtensa-toolchain@v1.5
+      - uses: izzyhub/xtensa-toolchain@v1.5
         with:
           default: true
           version: "latest"
