@@ -1,0 +1,30 @@
+on:
+  push:
+    branches:
+      - main
+
+name: Release Packaging
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+jobs:
+  release:
+    name: Release Packaging
+    env:
+      PROJECT_NAME_UNDERSCORE: rust_ci_github_actions_workflow
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: esp-rs/xtensa-toolchain@v1.5
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+      - name: Release Build
+        run: cargo build --release
+      - name: "Upload Artifact"
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ env.bbbot }}
+          path: target/release/${{ env.PROJECT_NAME_UNDERSCORE }}
