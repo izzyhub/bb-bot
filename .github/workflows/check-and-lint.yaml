@@ -18,9 +18,8 @@ jobs:
           version: "latest"
           ldproxy: true
           override: true
-      - uses: actions-rs/cargo@v1
-        with:
-          command: check
+      - name: "Run cargo check"
+        run: cargo check
 
   fmt:
     name: Rustfmt
