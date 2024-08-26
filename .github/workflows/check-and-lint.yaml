@@ -9,13 +9,13 @@ name: Check and Lint
 jobs:
   check:
     name: Check
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-20.04:docker://espressif/idf-rust
     steps:
       - uses: actions/checkout@v2
       - uses: izzyhub/xtensa-toolchain@v1.5.10
         with:
           default: true
-          version: "1.79.0.0"
+          version: "latest"
           ldproxy: true
           #override: true
       - run: cargo check
