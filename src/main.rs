@@ -14,6 +14,7 @@ use std::thread::sleep;
 
 mod wifi;
 mod config;
+mod botloop;
 
 use crate::config::Config;
 use crate::wifi::WifiConnection;

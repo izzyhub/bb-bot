@@ -18,9 +18,7 @@ jobs:
           version: "latest"
           ldproxy: true
           #override: true
-      - uses: actions-rs/cargo@v1
-        with:
-          command: check
+      - run: cargo check
 
   fmt:
     name: Rustfmt
@@ -34,10 +32,7 @@ jobs:
           ldproxy: true
           override: true
       - run: rustup component add rustfmt
-      - uses: actions-rs/cargo@v1
-        with:
-          command: fmt
-          args: --all -- --check
+      - run: cargo fmt --all --check
 
   clippy:
     name: Clippy
@@ -45,14 +40,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: izzyhub/xtensa-toolchain@v1.5.5
-        with:
-          default: true
-          version: "latest"
-          ldproxy: true
-          override: true
-          components: clippy
-      - uses: actions-rs/clippy-check@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          args: --all-features
-          name: Clippy Output
+      - run: cargo clippy

@@ -26,5 +26,5 @@ jobs:
       - name: "Upload Artifact"
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ env.bbbot }}
-          path: target/release/${{ env.PROJECT_NAME_UNDERSCORE }}
+          name: bbbot
+          path: target/release/bbbot
