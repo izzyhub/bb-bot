@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: izzyhub/xtensa-toolchain@v1.5.7
+      - uses: izzyhub/xtensa-toolchain@v1.5.8
         with:
           profile: minimal
           toolchain: nightly
