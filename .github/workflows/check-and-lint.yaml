@@ -18,6 +18,8 @@ jobs:
           version: "latest"
           ldproxy: true
           override: true
+      - name: "source exports"
+        run: . /root/exports
       - name: "Run cargo check"
         run: cargo check
 
