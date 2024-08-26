@@ -9,7 +9,7 @@ name: Check and Lint
 jobs:
   check:
     name: Check
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: esp-rs/xtensa-toolchain@v1.5
@@ -17,18 +17,17 @@ jobs:
           default: true
           version: "latest"
           ldproxy: true
-          override: true
-      - name: "source exports"
-        run: . /root/exports
-      - name: "Run cargo check"
-        run: cargo check
+          #override: true
+      - uses: actions-rs/cargo@v1
+        with:
+          command: check
 
   fmt:
     name: Rustfmt
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: esp-rs/xtensa-toolchain@v1.5
+      - uses: izzyhub/xtensa-toolchain@v1.5.3
         with:
           default: true
           version: "latest"
