@@ -47,10 +47,7 @@ fn build_env() -> Result<(), Box<dyn std::error::Error>> {
         };
     }
 
-    env_string!(
-        "WIFI_SSID",
-        "WIFI_PASS"
-    );
+    env_string!("WIFI_SSID", "WIFI_PASS");
 
     for l in lines.iter() {
         p!("cargo:warning={}", l)

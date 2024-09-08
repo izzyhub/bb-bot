@@ -3,7 +3,7 @@ use esp_println::println;
 
 use esp_idf_hal::gpio;
 use esp_idf_hal::prelude::Peripherals;
-use esp_idf_svc:: {
+use esp_idf_svc::{
     eventloop::EspSystemEventLoop,
     hal::peripheral,
     nvs,
@@ -12,13 +12,12 @@ use esp_idf_svc:: {
 };
 use std::thread::sleep;
 
-mod wifi;
 mod config;
+mod wifi;
 
 use crate::config::Config;
 use crate::wifi::WifiConnection;
 use anyhow::Result;
-
 
 fn main() {
     // It is necessary to call this function once. Otherwise some patches to the runtime
@@ -34,12 +33,12 @@ fn main() {
         .build()
         .expect("Failed to build tokio runtime");
 
-    match rt.block_on(async { async_main().await}) {
+    match rt.block_on(async { async_main().await }) {
         Ok(()) => log::info!("main() finished reboot."),
         Err(err) => {
             log::error!("{err:?}");
             sleep(std::time::Duration::from_secs(3));
-        },
+        }
     }
     log::info!("Hello, world!");
     println!("print world!");
@@ -77,8 +76,8 @@ async fn async_main() -> Result<()> {
     .await?;
 
     //tokio::try_join!(
-        //run_server(wifi_connection.state.clone()),
-        wifi_connection.connect().await?;
+    //run_server(wifi_connection.state.clone()),
+    wifi_connection.connect().await?;
     //)?;
 
     log::info!("Wifi connection successful");

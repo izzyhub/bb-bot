@@ -29,7 +29,7 @@ impl WifiState {
     }
 }
 
- pub struct WifiConnection<'a> {
+pub struct WifiConnection<'a> {
     pub state: Arc<WifiState>,
     wifi: AsyncWifi<EspWifi<'a>>,
 }
@@ -51,8 +51,10 @@ impl<'a> WifiConnection<'a> {
         })?;
 
         let mac = net_if.get_mac()?;
-        let mac_address = format!("{:02X}:{:02X}:{:02X}:{:02X}:{:02X}:{:02X}",
-         mac[0], mac[1], mac[2],mac[3], mac[4], mac[5]);
+        let mac_address = format!(
+            "{:02X}:{:02X}:{:02X}:{:02X}:{:02X}:{:02X}",
+            mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]
+        );
 
         let state = Arc::new(WifiState {
             ip_addr: RwLock::new(None),
@@ -60,7 +62,8 @@ impl<'a> WifiConnection<'a> {
             ssid: config.wifi_ssid.to_string(),
         });
 
-        let esp_wifi = EspWifi::wrap_all(wifi_driver, net_if, EspNetif::new(netif::NetifStack::Ap)?)?;
+        let esp_wifi =
+            EspWifi::wrap_all(wifi_driver, net_if, EspNetif::new(netif::NetifStack::Ap)?)?;
         let mut wifi = AsyncWifi::wrap(esp_wifi, event_loop, timer.clone())?;
 
         log::info!("Setting wifi credentials...");
@@ -77,7 +80,7 @@ impl<'a> WifiConnection<'a> {
         wifi.start().await?;
 
         log::info!("Wi-Fi driver started successfully");
-        Ok(Self {state, wifi})
+        Ok(Self { state, wifi })
     }
 
     pub async fn connect(&mut self) -> anyhow::Result<()> {
@@ -91,7 +94,11 @@ impl<'a> WifiConnection<'a> {
             }
             log::info!("Acquiring IP Address...");
             let timeout = Some(Duration::from_secs(10));
-            if let Err(err) = self.wifi.ip_wait_while(|w| w.is_up().map(|s| !s), timeout).await {
+            if let Err(err) = self
+                .wifi
+                .ip_wait_while(|w| w.is_up().map(|s| !s), timeout)
+                .await
+            {
                 log::warn!("IP Association failed: {err:?}");
                 self.wifi.disconnect().await?;
                 sleep(Duration::from_secs(1)).await;
@@ -104,9 +111,6 @@ impl<'a> WifiConnection<'a> {
 
             self.wifi.wifi_wait(|w| w.is_up(), None).await?;
             log::warn!("Wi-Fi disconnected.");
-
         }
-
     }
 }
-
