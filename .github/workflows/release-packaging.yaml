@@ -13,7 +13,7 @@ jobs:
     name: Release Packaging
     env:
       PROJECT_NAME_UNDERSCORE: rust_ci_github_actions_workflow
-    runs-on: ubuntu_xtensa
+    runs-on: xtensa-latest
     steps:
       - uses: actions/checkout@v2
         with:

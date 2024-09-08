@@ -9,7 +9,7 @@ name: Check and Lint
 jobs:
   check:
     name: Check
-    runs-on: ubuntu_xtensa
+    runs-on: xtensa-latest
     steps:
       - uses: actions/checkout@v2
         with:
@@ -21,7 +21,7 @@ jobs:
 
   fmt:
     name: Rustfmt
-    runs-on: ubuntu_xtensa
+    runs-on: xtensa-latest
     steps:
       - uses: actions/checkout@v2
         with:
@@ -34,7 +34,7 @@ jobs:
 
   clippy:
     name: Clippy
-    runs-on: ubuntu_xtensa
+    runs-on: xtensa-latest
     steps:
       - uses: actions/checkout@v2
         with:
