@@ -7,6 +7,8 @@ name: Release Packaging
 
 env:
   GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+  WIFI_SSID: ${{ secrets.WIFI_SSID }}
+  WIFI_PASS: ${{ secrets.WIFI_PASS }}
 
 jobs:
   release:
