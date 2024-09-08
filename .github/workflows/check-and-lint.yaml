@@ -34,7 +34,7 @@ jobs:
           version: "1.79.0.0"
           ldproxy: true
           override: true
-      - run: rustup component add rustfmt
+      #- run: rustup component add rustfmt
       - run: cargo fmt --all --check
 
   clippy:
