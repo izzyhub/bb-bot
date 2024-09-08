@@ -25,7 +25,7 @@ jobs:
       - name: Release Build
         run: cargo build --release
       - name: "Upload Artifact"
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: bbbot
           path: target/xtensa-esp32s3-espidf/release/bbbot
