@@ -28,4 +28,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: bbbot
-          path: target/release/bbbot
+          path: target/xtensa-esp32s3-espidf/release/bbbot
