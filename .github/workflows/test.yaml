@@ -49,13 +49,13 @@ jobs:
           echo '-----'
           ls -la
           echo '-----'
-          which cargo
-          echo '-----'
           ls -la /usr/share
           echo '-----'
           ls -la /usr/share/rust
           echo '-----'
           echo "PATH: $PATH"
+          echo '-----'
+          which cargo
           echo '-----'
           cargo install cargo2junit grcov;
           echo '-----'
