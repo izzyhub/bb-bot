@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - bugfixes/ci-fixes
 
 name: Test with Code Coverage
 
@@ -41,6 +42,12 @@ jobs:
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('Cargo.lock') }}
       - name: Generate test result and coverage report
         run: |
+          whoami
+          pwd
+          ls -la
+          which cargo
+          ls -l /usr/share
+          ls -l /usr/share/rust
           cargo install cargo2junit grcov;
           cargo test $CARGO_OPTIONS -- -Z unstable-options --format json | cargo2junit > results.xml;
           zip -0 ccov.zip `find . \( -name "$PROJECT_NAME_UNDERSCORE*.gc*" \) -print`;
