@@ -42,13 +42,23 @@ jobs:
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('Cargo.lock') }}
       - name: Generate test result and coverage report
         run: |
+          echo '-----'
           whoami
+          echo '-----'
           pwd
+          echo '-----'
           ls -la
+          echo '-----'
           which cargo
-          ls -l /usr/share
-          ls -l /usr/share/rust
+          echo '-----'
+          ls -la /usr/share
+          echo '-----'
+          ls -la /usr/share/rust
+          echo '-----'
+          echo "PATH: $PATH"
+          echo '-----'
           cargo install cargo2junit grcov;
+          echo '-----'
           cargo test $CARGO_OPTIONS -- -Z unstable-options --format json | cargo2junit > results.xml;
           zip -0 ccov.zip `find . \( -name "$PROJECT_NAME_UNDERSCORE*.gc*" \) -print`;
           grcov ccov.zip -s . -t lcov --llvm --ignore-not-existing --ignore "/*" --ignore "tests/*" -o lcov.info;
