@@ -57,9 +57,9 @@ jobs:
           echo '-----'
           echo "PATH: $PATH"
           echo '-----'
-          cargo install tarpaulin
+          cargo install cargo-tarpaulin
           echo '-----'
-          cargo tarpauling --engine llvm --out lcov ;
+          cargo tarpaulin --engine llvm --out lcov ;
       - name: Upload test results
         uses: EnricoMi/publish-unit-test-result-action@v2
         with:
