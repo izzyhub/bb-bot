@@ -51,6 +51,12 @@ jobs:
           echo '-----'
           ls -la /usr/share
           echo '-----'
+          echo "HOME: $HOME"
+          echo '-----'
+          echo "ls -l $HOME"
+          echo '-----'
+          echo "ls -l $HOME/.cargo"
+          echo '-----'
           ls -la /usr/share/rust
           echo '-----'
           echo "PATH: $PATH"
