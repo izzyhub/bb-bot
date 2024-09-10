@@ -42,24 +42,8 @@ jobs:
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('Cargo.lock') }}
       - name: Generate test result and coverage report
         run: |
-          echo '-----'
-          whoami
-          echo '-----'
-          pwd
-          echo '-----'
-          ls -la
-          echo '-----'
-          ls -la /usr/share
-          echo '-----'
-          echo "HOME: $HOME"
-          echo '-----'
-          ls -la /usr/share/rust
-          echo '-----'
-          echo "PATH: $PATH"
-          echo '-----'
           cargo install cargo-tarpaulin
-          echo '-----'
-          cargo tarpaulin --engine llvm --out lcov ;
+          cargo tarpaulin --engine llvm --out lcov
       - name: Upload test results
         uses: EnricoMi/publish-unit-test-result-action@v2
         with:
