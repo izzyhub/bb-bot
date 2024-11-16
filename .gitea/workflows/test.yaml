@@ -20,14 +20,8 @@ jobs:
       CARGO_INCREMENTAL: 0
       RUSTFLAGS: -Zprofile -Ccodegen-units=1 -Copt-level=0 -Clink-dead-code -Coverflow-checks=off -Zpanic_abort_tests -Cpanic=abort
       RUSTDOCFLAGS: -Cpanic=abort
-    runs-on: ubuntu-latest
+    runs-on: xtensa-latest
     steps:
-      - name: Install Rust for Xtensa
-        uses: esp-rs/xtensa-toolchain@v1.5
-        with:
-          default: true
-          version: "1.66.0"
-          ldproxy: true
       - uses: actions/checkout@v3
         with:
           default: true

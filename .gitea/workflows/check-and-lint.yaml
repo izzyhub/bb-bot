@@ -14,7 +14,7 @@ env:
 jobs:
   check:
     name: Check
-    runs-on: ubuntu-latest
+    runs-on: xtensa-latest
     steps:
       - uses: actions/checkout@v2
         with:
@@ -26,14 +26,8 @@ jobs:
 
   fmt:
     name: Rustfmt
-    runs-on: ubuntu-latest
+    runs-on: xtensa-latest
     steps:
-      - name: Install Rust for Xtensa
-        uses: esp-rs/xtensa-toolchain@v1.5
-        with:
-          default: true
-          version: "1.66.0"
-          ldproxy: true
       - uses: actions/checkout@v2
         with:
           default: true
@@ -45,14 +39,8 @@ jobs:
 
   clippy:
     name: Clippy
-    runs-on: ubuntu-latest
+    runs-on: xtensa-latest
     steps:
-      - name: Install Rust for Xtensa
-        uses: esp-rs/xtensa-toolchain@v1.5
-        with:
-          default: true
-          version: "1.66.0"
-          ldproxy: true
       - uses: actions/checkout@v2
         with:
           default: true

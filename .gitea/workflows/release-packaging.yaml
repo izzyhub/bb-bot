@@ -15,18 +15,12 @@ jobs:
     name: Release Packaging
     env:
       PROJECT_NAME_UNDERSCORE: rust_ci_github_actions_workflow
-    runs-on: ubuntu-latest
+    runs-on: xtensa-latest
     steps:
       - uses: actions/checkout@v2
         with:
           default: true
           version: "1.79.0.0"
-          ldproxy: true
-      - name: Install Rust for Xtensa
-        uses: esp-rs/xtensa-toolchain@v1.5
-        with:
-          default: true
-          version: "1.66.0"
           ldproxy: true
       - name: Release Build
         run: cargo build --release
