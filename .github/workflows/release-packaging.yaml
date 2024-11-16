@@ -18,15 +18,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          default: true
-          version: "1.79.0.0"
-          ldproxy: true
-      - name: Install Rust for Xtensa
         uses: esp-rs/xtensa-toolchain@v1.5
         with:
           default: true
-          version: "1.66.0"
+          version: "1.79.0"
           ldproxy: true
       - name: Release Build
         run: cargo build --release
