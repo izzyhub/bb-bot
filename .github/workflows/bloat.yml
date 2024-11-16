@@ -3,6 +3,7 @@ on: # rebuild any PRs and main branch changes
   push:
     branches:
       - main
+      - bugfixes/ci-fixes
 
 name: bloat
 
@@ -11,10 +12,6 @@ jobs:
     runs-on: xtensa-latest
     steps:
       - uses: actions/checkout@master
-      - name: Install Rust
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
       - name: Run cargo bloat
         uses: orf/cargo-bloat-action@v1
         with:
