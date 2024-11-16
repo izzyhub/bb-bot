@@ -5,7 +5,7 @@ on: # rebuild any PRs and main branch changes
       - main
       - bugfixes/ci-fixes
 env:
-  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   WIFI_SSID: ${{ secrets.WIFI_SSID }}
   WIFI_PASS: ${{ secrets.WIFI_PASS }}
   RUST_BACKTRACE: 1
