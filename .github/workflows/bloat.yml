@@ -8,7 +8,7 @@ name: bloat
 
 jobs:
   cargo_bloat:
-    runs-on: ubuntu-latest
+    runs-on: xtensa-latest
     steps:
       - uses: actions/checkout@master
       - name: Install Rust
