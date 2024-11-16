@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Run cargo bloat
-        uses: izzyhub/cargo-bloat-action@v1
+        uses: izzyhub/cargo-bloat-action
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           bloat_args: --symbols-section .flash.text
