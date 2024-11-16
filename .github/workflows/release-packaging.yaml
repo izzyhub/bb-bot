@@ -2,6 +2,7 @@ on:
   push:
     branches:
       - main
+      - bugfixes/ci-fixes
 
 name: Release Packaging
 
@@ -17,7 +18,7 @@ jobs:
       PROJECT_NAME_UNDERSCORE: rust_ci_github_actions_workflow
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         uses: esp-rs/xtensa-toolchain@v1.5
         with:
           default: true
