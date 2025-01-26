@@ -17,6 +17,7 @@ use std::sync::Arc;
 use tokio::sync::RwLock;
 use tokio::time::{sleep, Duration};
 
+#[derive(Debug)]
 pub struct WifiState {
     pub mac_address: String,
     pub ssid: String,

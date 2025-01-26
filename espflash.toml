@@ -1,0 +1,7 @@
+partition_table = "partitions.csv"
+[connection]
+serial = "/dev/cu.wchusbserial58FC0497201"
+#serial = "/dev/cu.wchusbserial58960369861"
+
+[flash]
+size = "16MB"
