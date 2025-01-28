@@ -6,3 +6,4 @@ cfg.toml
 build.env
 .env
 .envrc
+*-image
